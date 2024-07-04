@@ -45,7 +45,7 @@ public class EmpleadoDAO {
    
    //operaciones para el CRUD
    public List listar(){
-       String sql="selec * from empleado";
+       String sql="select * from empleado";
        List<Empleado>lista = new ArrayList<>();
        try {
            con=cn.Conexion();
@@ -68,7 +68,7 @@ public class EmpleadoDAO {
    
    public int agregar(Empleado em){
        
-       String sql = "insert into empleado(Dni,Nombres,Telefono,Estado,User)values(?,?,?,?,?)";
+       String sql = "insert into empleado(Dni,Nombres,Telefono,Estado,User) values(?,?,?,?,?)";
        try {
            con = cn.Conexion();
            ps=con.prepareStatement(sql);
@@ -78,6 +78,7 @@ public class EmpleadoDAO {
            ps.setString(4, em.getEstado());
            ps.setString(5, em.getUser());
            ps.executeUpdate();
+           
           
        } catch (Exception e) {
        }

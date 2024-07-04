@@ -23,6 +23,7 @@ public class Controlador extends HttpServlet {
 
     Empleado em = new Empleado();
     EmpleadoDAO edao = new EmpleadoDAO();
+    int ide;
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
@@ -40,13 +41,48 @@ public class Controlador extends HttpServlet {
                     request.setAttribute("empleados", lista);
                     break;
                 case "Agregar":
-                    
+                    String dni =  request.getParameter("txtDni");
+                    String nom =  request.getParameter("txtNombres");
+                    String tel =  request.getParameter("txtTel");
+                    String est =  request.getParameter("txtEstado");
+                    String user =  request.getParameter("txtUser");
+                    em.setDni(dni);
+                    em.setNom(nom);
+                    em.setTel(tel);
+                    em.setEstado(est);
+                    em.setUser(user);
+                    edao.agregar(em);
+                    request.getRequestDispatcher("Controlador?menu=Empleado&accion=Listar").forward(request, response);
                     break;
+                    
                 case "Editar":
+                    ide = Integer.parseInt(request.getParameter("id"));
+                    Empleado e = edao.listarId(ide);
+                    request.setAttribute("empleado", e);
+                    request.getRequestDispatcher("Controlador?menu=Empleado&accion=Listar").forward(request, response);
                     
                     break;
-                case "Delete":
+                case "Actualizar":
+                    String dni1 =  request.getParameter("txtDni");
+                    String nom1 =  request.getParameter("txtNombres");
+                    String tel1 =  request.getParameter("txtTel");
+                    String est1 =  request.getParameter("txtEstado");
+                    String user1 =  request.getParameter("txtUser");
+                    em.setDni(dni1);
+                    em.setNom(nom1);
+                    em.setTel(tel1);
+                    em.setEstado(est1);
+                    em.setUser(user1);
+                    em.setId(ide);
+                    edao.actualizar(em);
+                    request.getRequestDispatcher("Controlador?menu=Empleado&accion=Listar").forward(request, response);
                     
+                    break;
+                    
+                case "Delete":
+                    ide = Integer.parseInt(request.getParameter("id"));
+                    edao.delete(ide);
+                    request.getRequestDispatcher("Controlador?menu=Empleado&accion=Listar").forward(request, response);
                     break;
             }
             

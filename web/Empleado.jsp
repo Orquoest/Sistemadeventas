@@ -18,28 +18,30 @@
         <div class="d-flex">
             <div class="card col-sm-6" style="border: none">
                 <div class="card-body" >
-                <form>
+                    <form action="Controlador?menu=Empleado" method="post">
+                                                 
                     <div class="form-group">
                         <label>Dni</label>
-                        <input type="text" name="txtDni" class="form-control">
+                        <input type="text"  name="txtDni" value="${empleado.getDni()}" class="form-control">
                     </div>
                     <div class="form-group">
                         <label>Nombres</label>
-                        <input type="text" name="txtNombres" class="form-control">
+                        <input type="text" value="${empleado.getNom()}" name="txtNombres" class="form-control">
                     </div>
                     <div class="form-group">
                         <label>Telefono</label>
-                        <input type="text" name="txtTel" class="form-control">
+                        <input type="text" value="${empleado.getTel()}" name="txtTel" class="form-control">
                     </div>
                     <div class="form-group">
                         <label>Estado</label>
-                        <input type="text" name="txtEstado" class="form-control">
+                        <input type="text" value="${empleado.getEstado()}" name="txtEstado"  class="form-control">
                     </div>
                     <div class="form-group">
                         <label>Usuario</label>
-                        <input type="text" name="txtUsuario" class="form-control">
+                        <input type="text" name="txtUser" value="${empleado.getUser()}"  class="form-control">
                     </div><br>
                     <input type="submit" name="accion" value="Agregar" class="btn bg-info">
+                    <input type="submit" name="accion" value="Actualizar" class="btn bg-success">
                     
                 </form>
             </div>
@@ -48,6 +50,7 @@
             <table class="table table-hover">
                 <thead>
                     <tr>
+                        <th>ID</th>
                         <th>DNI</th>
                         <th>NOMBRES</th>
                         <th>TELEFONO</th>
@@ -66,8 +69,8 @@
                         <td>${em.getEstado()}</td>
                         <td>${em.getUser()}</td>
                         <td>
-                            <a>Editar</a>
-                            <a>Delete</a>
+                            <a style="margin-bottom: 15px" class="btn btn-warning" href="Controlador?menu=Empleado&accion=Editar&id=${em.getId()}">Editar</a>
+                            <a class="btn btn-danger" href="Controlador?menu=Empleado&accion=Delete&id=${em.getId()}">Delete</a>
                         </td>
                     </tr>
                 </c:forEach>
