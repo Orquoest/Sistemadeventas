@@ -34,6 +34,8 @@ Empleado em= new Empleado();
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
+        
+        
     }
 
 
@@ -57,6 +59,8 @@ Empleado em= new Empleado();
         else{
              request.getRequestDispatcher("index.jsp").forward(request, response);
         }
+        
+        
     }
     
  

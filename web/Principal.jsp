@@ -30,7 +30,7 @@
           <a style="margin-left:10px; border:none; " class="btn btn-outline-light" href="Controlador?menu=Empleado&accion=Listar" target="myFrame">Empleado</a>
         </li>
         <li class="nav-item">
-          <a style="margin-left:10px; border:none; " class="btn btn-outline-light" href="Controlador?menu=Cliente" target="myFrame">Clientes</a>
+          <a style="margin-left:10px; border:none; " class="btn btn-outline-light" href="Controlador?menu=Cliente&accion=Listar" target="myFrame">Cliente</a>
         </li>
         <li class="nav-item">
           <a style="margin-left:10px; border:none; " class="btn btn-outline-light" href="Controlador?menu=NuevaVenta" target="myFrame">Nueva Venta</a>
@@ -62,6 +62,12 @@
               <div class="n-4" style="height:550px">
                   <iframe name="myFrame" style="height: 100%;width: 100%;border: none"></iframe>
               </div>
+              
+
+              
+              
+              
+              
               
  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
